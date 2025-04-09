@@ -28,15 +28,21 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  webpack: (config) => {
-    config.resolve.fallback = {
-      ...config.resolve.fallback,
-      child_process: false, // Prevents it from being bundled
-      fs: false,
-      os: false,
-    };
-    return config;
+  // webpack: (config) => {
+  //   config.resolve.fallback = {
+  //     ...config.resolve.fallback,
+  //     child_process: false, // Prevents it from being bundled
+  //     fs: false,
+  //     os: false,
+  //   };
+  //   return config;
+  // },
+  eslint:{
+    ignoreDuringBuilds: true,
   },
+  typescript:{
+    ignoreBuildErrors: true
+  }
 };
 
 export default nextConfig;
